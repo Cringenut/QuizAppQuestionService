@@ -63,7 +63,6 @@ public class QuestionService {
         questions.stream().forEach((question -> {
             QuestionWrapper wrapper = new QuestionWrapper(
                     question.get().getQuestionTitle(),
-                    question.get().getQuestion(),
                     question.get().getOption1(),
                     question.get().getOption2(),
                     question.get().getOption3(),
