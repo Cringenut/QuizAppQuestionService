@@ -1,6 +1,7 @@
 package com.cringenut.questions_service.controller;
 
 import com.cringenut.questions_service.model.Question;
+import com.cringenut.questions_service.model.QuestionWrapper;
 import com.cringenut.questions_service.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,12 @@ public class QuestionController {
     public ResponseEntity<List<Integer>> getQuestionsForQuiz(
             @RequestParam String category, @RequestParam Integer numQuestions) {
         return questionService.getQuestionsForQuiz(category, numQuestions);
+    }
+
+    @PostMapping("/getQuestions")
+    public ResponseEntity<List<QuestionWrapper>> getQuestionsFromIds(
+            @RequestBody List<Integer> questionIds) {
+        return questionService.getQuestionsFromIds(questionIds);
     }
 
 }
