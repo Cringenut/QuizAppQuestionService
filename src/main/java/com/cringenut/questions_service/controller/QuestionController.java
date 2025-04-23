@@ -2,6 +2,7 @@ package com.cringenut.questions_service.controller;
 
 import com.cringenut.questions_service.model.Question;
 import com.cringenut.questions_service.model.QuestionWrapper;
+import com.cringenut.questions_service.model.Response;
 import com.cringenut.questions_service.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +42,11 @@ public class QuestionController {
     public ResponseEntity<List<QuestionWrapper>> getQuestionsFromIds(
             @RequestBody List<Integer> questionIds) {
         return questionService.getQuestionsFromIds(questionIds);
+    }
+
+    @PostMapping("/getScore")
+    public ResponseEntity<Integer> getScore(@RequestBody List<Response> responses) {
+        return questionService.getScore(responses);
     }
 
 }
