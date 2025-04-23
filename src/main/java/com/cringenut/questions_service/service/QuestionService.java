@@ -42,4 +42,9 @@ public class QuestionService {
             return new ResponseEntity<>("Error", HttpStatus.BAD_REQUEST);
         }
     }
+
+    public ResponseEntity<List<Integer>> getQuestionsForQuiz(String category, Integer numQuestions) {
+        List<Integer> questions = questionDao.findRandomByCategory(category, numQuestions);
+        return new ResponseEntity<>(questions, HttpStatus.OK);
+    }
 }
