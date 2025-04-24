@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class QuestionWrapper {
-    private Integer id;
     private String questionTitle;
     private String option1;
     private String option2;
